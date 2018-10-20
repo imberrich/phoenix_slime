@@ -1,6 +1,6 @@
 h2 Listing <%= schema.human_plural %>
 
-table.table
+table
   thead
     tr
 <%= for {k, _} <- schema.attrs do %>      th <%= Phoenix.Naming.humanize(Atom.to_string(k)) %>
@@ -9,10 +9,10 @@ table.table
     = for <%= schema.singular %> <- @<%= schema.plural %> do
       tr
 <%= for {k, _} <- schema.attrs do %>        td= <%= schema.singular %>.<%= k %>
-<% end %>        td class="text-right"
-          = link "Show", to: <%= schema.route_helper %>_path(@conn, :show, <%= schema.singular %>), class: "btn btn-default btn-xs"
+<% end %>        td
+          = link "Show", to: <%= schema.route_helper %>_path(@conn, :show, <%= schema.singular %>)
           | &nbsp;
-          = link "Edit", to: <%= schema.route_helper %>_path(@conn, :edit, <%= schema.singular %>), class: "btn btn-default btn-xs"
+          = link "Edit", to: <%= schema.route_helper %>_path(@conn, :edit, <%= schema.singular %>)
           | &nbsp;
           = link "Delete", to: <%= schema.route_helper %>_path(@conn, :delete, <%= schema.singular %>), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
 
