@@ -1,10 +1,11 @@
 doctype html
+
 html lang="en"
   head
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1" 
-    title <%= application_module %> · Phoenix Framework
+    title #{application_module} · Phoenix Framework
     link rel="stylesheet" href="#{Routes.static_url(@conn, "/css/app.css")}"
 
   body
@@ -16,7 +17,7 @@ html lang="en"
               a href="https://hexdocs.pm/phoenix/overview.html" Get Started
         
         a href="http://phoenixframework.org/" class="phx-logo"
-          img src="#{Routes.static_url(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"
+          img src="#{Routes.static_url(@conn, \"/images/phoenix.png\")} alt="Phoenix Framework Logo"
 
     main.container role="main" 
       p.alert.alert-info role="alert"= get_flash(@conn, :info)
